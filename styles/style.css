@@ -1,16 +1,436 @@
-/* Здесь вы напишете основную часть стилей страницы.
+@keyframes scale {
+  0% {
+    scale3d: 1;
+  }
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
+  100% {
+    scale3d: 1.25;
+  }
+}
 
-*/
+@keyframes fill {
+  0% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
 
 .page {
   min-inline-size: 320px;
-  min-block-size: 100dvb;
+  max-inline-size: 1440px;
+  min-block-size: 100dvh;
+  justify-self: center;
+  padding: 100px 370px 103px;
+  font-family: var(--main-font);
+  font-size: 18px;
+  color: black;
+  font-variation-settings: 'wght' var(--font-weight-normal);
+  background-image: var(--bg-gradient);
+  background-size: cover; 
+  background-attachment: fixed; 
+  background-size: 100dvh;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  gap: 20px;
+  inline-size: clamp(23.438rem, 100vw + 0rem, 43.75rem);
+  min-block-size: 368px;
+  background-color: var(--main-color);
+  border: 2px solid var(--accent-color);
+  font-family: var(--accent-font);
+}
+
+.heading {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.content {
+  margin-block-start: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-self: center;
+  align-items: center;
+  inline-size: clamp(23.438rem, 100vw + 0rem, 43.75rem);
+}
+
+.article {
+  border: 2px solid var(--accent-color);
+  inline-size: clamp(23.438rem, 100vw + 0rem, 43.75rem);
+  min-block-size: 959px;
+  background-color: var(--main-color);
+}
+
+.sub-heading {
+  font-family: var(--accent-font);
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+}
+
+.content-heading__container {
+  max-block-size: 54px;
+  min-block-size: 33px;
+  padding: 0 10px;
+  align-content: center;
+  inline-size: clamp(23.188rem, 100vw + 0rem, 43.5rem);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.content-heading {
+  font-size: 18px;
+  font-variation-settings: 'wght' var(--font-weight-bold);
+}
+
+.article__image {
+  position: relative;
+  inline-size: clamp(23.188rem, 100vw + 0rem, 43.5rem);
+  max-block-size: 696px;
+}
+
+.image {
+  inline-size: clamp(23.188rem, 100vw + 0rem, 43.5rem);
+}
+
+.you-can-do-it__image {
+  filter: hue-rotate(0.5turn) brightness(50%) blur(0.1rem);
+}
+
+.working__image {
+  filter: contrast(150%);
+}
+
+.power__image {
+  filter: saturate(290%);
+}
+
+.thinking__image {
+  filter: blur(0.2rem);
+}
+
+.together__image {
+  filter: sepia(50%);
+}
+
+.headache__image {
+  filter: grayscale(1);
+}
+
+.panic__image {
+  filter: invert(0.7);
+}
+
+.tired__image {
+  filter: brightness(50%);
+}
+
+.watermark {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  mix-blend-mode: hard-light;
+  opacity: 50%;
+  text-shadow:
+  -1px 0 var(--stroke-color), 
+  0 1px var(--stroke-color), 
+  1px 0 var(--stroke-color), 
+  0 -1px var(--stroke-color);
+}
+
+@supports((text-stroke: 1px var(--stroke-color)) or (-webkit-text-stroke: 1px var(--stroke-color))) {
+  .watermark {
+    -webkit-text-stroke: 1px var(--stroke-color);
+    text-stroke: 1px var(--stroke-color);
+    text-shadow: none;
+  }
+}
+
+.article__content {
+  padding: 25px;
+  inline-size: clamp(23.188rem, 100vw + 0rem, 43.5rem);
+  border-top: 2px solid var(--accent-color);
+}
+
+.text-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  margin-block-end: 25px;
+
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-items: center;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  border: none;
+  block-size: 34px;
+  inline-size: auto;
+  padding: 0;
+}
+
+.card__icon-button:focus {
+  outline: none;
+} 
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  transition: 0.3s ease;
+}
+
+.like-icon {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+}
+
+.sparks {
+  opacity: 0%;
+}
+
+.contour {
+  fill: var(--contour-color);
+  transition: fill 0.1s linear;
+}
+
+.like-icon.is-liked .sparks {
+  animation: fill 0.3s ease-in 0.3s;
+  animation-iteration-count: 1;
+}
+
+.card__like-button {
+  inline-size: 130px;
+}
+
+.like-icon {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.like-icon.is-liked .heart {
+  animation: scale 0.3s ease-in 0.1s;
+  animation-iteration-count: 1;
+}
+
+.core {
+  fill: transparent;
+  transition: fill 0.3s 0.03s;
+}
+
+.like-icon:hover .core {
+  fill: var(--contour-color);
+  transition: fill 0.3s;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contour-color);
+  transition: fill 0.3s 0.05s;
+}
+
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s 0.06s;
+}
+
+.save-icon__small {
+  position: relative;
+  inline-size: 21px;
+  block-size: 21px;
+  object-fit: contain;
+  color: var(--main-color);
+  mix-blend-mode: difference;
+}
+
+.button__text {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  position: relative;
+  color: var(--main-color);
+  mix-blend-mode: difference;
+}
+
+.button {
+  position: relative;
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+  block-size: 38px;
+  background-color: var(--main-color);
+  cursor: pointer;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0px 0px currentColor;
+  transition: 0.3s ease;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  block-size: 100%;
+  inline-size: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  color: var(--main-color);
+  background-color: var(--accent-color);
+  transform: scaleX(1);
+}
+
+.dialog__window {
+  padding: 30px;
+  inline-size: clamp(21.313rem, 100vw + 0rem, 22.063rem);
+  min-block-size: 191px;
+  background-color: var(--main-color);
+}
+
+.dialog__window[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dialog__window[open]::backdrop {
+  background-color: var(--accent-color);
+  opacity: 75%;
+}
+
+body:has(.dialog__window[open]) {
+  overflow: hidden;
+}
+
+.dialog__content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-content: center;
+  align-items: center;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 1.5em;
+}
+
+.save-icon__big {
+  position: relative;
+  min-inline-size: 39px;
+  min-block-size: 39px;
+  object-fit: contain;
+  color: var(--main-color);
+  mix-blend-mode: difference;
+}
+
+.save-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  block-size: 55px;
+  inline-size: 339px;
+}
+
+@media (width <= 375px) {
+  .page {
+    padding: 100px 0;
+  }
+
+  .header__mobile {
+    inline-size: var(--mob-header-size);
+    min-block-size: 327px;
+  }
+
+  .content__mobile {
+    inline-size: var(--mob-content-size);
+  }
+
+  .article {
+    min-block-size: 718px;
+  }
+
+  .content-heading {
+    line-height: 1.32em;
+  }
+
+  .content-heading__container {
+    padding-block-start: 4px;
+  }
+
+  .content-heading__container,
+  .article__content {
+    max-inline-size: 371px;
+  }
+
+  .image,
+  .article__image {
+    max-block-size: 371px;
+    max-inline-size: 371px;
+  }
+
+  .watermark {
+    right: 13px;
+  }
+
+  .save-icon__small {
+    min-inline-size: 28px;
+    min-block-size: 28px;
+  }
+
+  .save-button {
+    flex-direction: column;
+    block-size: 84px;
+    inline-size: 310px;
+  }
 }
