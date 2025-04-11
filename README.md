@@ -1,1 +1,1 @@
-https://tdudina.github.io/zakrivayuschiy-teg-f/
+https://github.com/tdudina/zakrivayuschiy-teg-f
