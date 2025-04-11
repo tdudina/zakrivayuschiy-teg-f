@@ -29,9 +29,8 @@
   color: black;
   font-variation-settings: 'wght' var(--font-weight-normal);
   background-image: var(--bg-gradient);
-  background-size: cover; 
-  background-attachment: fixed; 
-  background-size: 100dvh;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .header {
@@ -173,7 +172,6 @@
   flex-direction: row;
   gap: 6px;
   justify-content: flex-end;
-  align-items: flex-end;
   align-items: center;
 }
 
@@ -198,6 +196,7 @@
   inline-size: 100%;
   block-size: 100%;
   object-fit: contain;
+  cursor: pointer;
 }
 
 .sparks {
@@ -216,13 +215,6 @@
 
 .card__like-button {
   inline-size: 130px;
-}
-
-.like-icon {
-  inline-size: 100%;
-  block-size: 100%;
-  object-fit: contain;
-  cursor: pointer;
 }
 
 .like-icon.is-liked .heart {
@@ -294,7 +286,6 @@
 
 .button {
   position: relative;
-  background-color: transparent;
   border: 2px solid var(--accent-color);
   block-size: 38px;
   background-color: var(--main-color);
