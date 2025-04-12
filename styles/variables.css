@@ -1,6 +1,6 @@
 :root {
     --main-font: 'Inter-Variable', sans-serif;
-    --accent-font: 'PressStart2P-Regular';
+    --accent-font: 'PressStart2P', fantasy;
     --main-color: white;
     --accent-color: black;
     --font-weight-normal: 400;

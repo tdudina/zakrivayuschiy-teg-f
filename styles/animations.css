@@ -1,11 +1,79 @@
-/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+@keyframes scale {
+    0% {
+      scale3d: 1;
+    }
+  
+    100% {
+      scale3d: 1.25;
+    }
+  }
+  
+  @keyframes fill {
+    0% {
+      opacity: 0%;
+    }
+  
+    100% {
+      opacity: 100%;
+    }
+  }
+  
+  .like-icon.is-liked .sparks {
+    animation: fill 0.3s ease-in 0.3s;
+    animation-iteration-count: 1;
+  }
 
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
+  .like-icon.is-liked .heart {
+    animation: scale 0.3s ease-in 0.1s;
+    animation-iteration-count: 1;
+  }
 
-*/
+  .contour {
+    fill: var(--contour-color);
+    transition: fill 0.1s linear;
+  }
+
+  .core {
+    fill: transparent;
+    transition: fill 0.3s 0.03s;
+  }
+  
+  .like-icon:hover .core {
+    fill: var(--contour-color);
+    transition: fill 0.3s;
+  }
+  
+  .main-body {
+    fill: transparent;
+    transition: fill 0.3s;
+  }
+  
+  .like-icon:hover .main-body {
+    fill: var(--contour-color);
+    transition: fill 0.3s 0.05s;
+  }
+  
+  .like-icon:active .core {
+    fill: var(--animation-fill-color);
+    transition: fill 0.3s;
+  }
+  
+  .like-icon:active .main-body {
+    fill: var(--animation-fill-color);
+    transition: fill 0.3s 0.05s;
+  }
+  
+  .like-icon.is-liked .core {
+    fill: var(--animation-fill-color);
+    transition: fill 0.3s;
+  }
+  
+  .like-icon.is-liked .main-body {
+    fill: var(--animation-fill-color);
+    transition: fill 0.3s 0.05s;
+  }
+  
+  .like-icon.is-liked .contour {
+    fill: var(--animation-fill-color);
+    transition: fill 0.3s 0.06s;
+  }
