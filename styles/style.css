@@ -20,9 +20,10 @@
   justify-content: center;
   justify-self: center;
   gap: 20px;
-  padding: 128px 120px;
+  padding: 128px 0px;
   margin-block-start: 100px;
   inline-size: clamp(23.438rem, 100vw + 0rem, 43.75rem);
+  min-inline-size: 371px;
   background-color: var(--main-color);
   border: 2px solid var(--accent-color);
   font-family: var(--accent-font);
@@ -30,6 +31,12 @@
 
 .heading {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.sub-heading {
+  font-family: var(--accent-font);
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
 }
 
 .content {
@@ -45,20 +52,12 @@
 
 .article {
   border: 2px solid var(--accent-color);
-  inline-size: clamp(23.438rem, 100vw + 0rem, 43.75rem);
   background-color: var(--main-color);
-}
-
-.sub-heading {
-  font-family: var(--accent-font);
-  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-  text-transform: uppercase;
 }
 
 .content-heading__container {
   padding: 3px 24px 3px 10px;
   align-content: center;
-  inline-size: clamp(23.188rem, 100vw + 0rem, 43.5rem);
   border-bottom: 2px solid var(--accent-color);
 }
 
@@ -71,14 +70,14 @@
 .article__image {
   position: relative;
   inline-size: clamp(23.188rem, 100vw + 0rem, 43.5rem);
-  max-inline-size: 696px;
-  max-block-size: 696px;
 }
 
 .image {
+  display: block;
   object-fit: contain;
   object-position: center;
   max-inline-size: 100%;
+  max-block-size: 100%;
 }
 
 .hue-rotate__bright__blur-image {
@@ -138,7 +137,6 @@
 
 .article__content {
   padding: 25px;
-  inline-size: clamp(23.188rem, 100vw + 0rem, 43.5rem);
   border-top: 2px solid var(--accent-color);
 }
 
@@ -213,7 +211,7 @@
   block-size: 38px;
   background-color: var(--main-color);
   cursor: pointer;
-  transition: 0.5s ease-in-out;
+  transition: 0.3s ease;
 }
 
 .button:focus {
@@ -222,7 +220,6 @@
 
 .button:focus-visible {
   box-shadow: 2px 2px 0px 0px currentColor;
-  transition: 0.3s ease;
 }
 
 .button::before {
@@ -235,7 +232,7 @@
   inline-size: 100%;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .button:hover::before {
@@ -302,7 +299,7 @@ body:has(.dialog__window[open]) {
 @media (width <= 375px) {
   .header {
     inline-size: var(--mob-header-size);
-    padding: 120px 14px;
+    padding: 120px 0px;
   }
 
   .content {
@@ -320,11 +317,6 @@ body:has(.dialog__window[open]) {
 
   .content-heading__container {
     padding: 4px 10px 6px 10px;
-  }
-
-  .content-heading__container,
-  .article__content {
-    max-inline-size: 371px;
   }
 
   .article__image {
